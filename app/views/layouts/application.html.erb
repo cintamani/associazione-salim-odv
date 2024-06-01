@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%
+=begin%>
+ <% if founder_signed_in? %>
+      <%= button_to "Sign Out", destroy_founder_session_path, method: :destroy %>
+    <% else %>
+      <%= link_to 'Sign In', new_founder_session_path %>
+      <%= link_to 'Sign Up', new_founder_registration_path %>
+    <% end %>
+<%
+=end%>
     <%= yield %>
+
   </body>
 </html>
