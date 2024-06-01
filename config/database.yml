@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: associazionesalim_production
-  username: associazionesalim
-  password: <%= ENV["ASSOCIAZIONESALIM_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
