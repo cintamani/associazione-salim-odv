@@ -17,6 +17,10 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
+# Manage money values in DB column, convert between currencies and such
+# https://github.com/RubyMoney/money-rails
+gem 'money-rails', '~> 1.12'
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 gem 'dartsass-sprockets'
