@@ -12,19 +12,28 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%
+    <nav>
+      <%
 =begin%>
- <% if founder_signed_in? %>
-      <%= button_to "Sign Out", destroy_founder_session_path, method: :destroy %>
-    <% else %>
-      <%= link_to 'Sign In', new_founder_session_path %>
-      <%= link_to 'Sign Up', new_founder_registration_path %>
-    <% end %>
+ <%= render "menu" %>
 <%
 =end%>
-    <%= yield %>
+    </nav>
 
+    <main>
+      <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <% if true #founder_signed_in? %>
+          <%= button_to "Sign Out", "#destroy_founder_session_path", method: :destroy, class: "btn btn-primary btn-sm px-4 gap-3" %>
+        <% else %>
+          <%= link_to 'Sign In', "#new_founder_session_path" %>
+          <%= link_to 'Sign Up', "#new_founder_registration_path" %>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>
