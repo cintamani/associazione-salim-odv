@@ -3,6 +3,14 @@
     <li class="breadcrumb-item active" aria-current="page"><%= plural_table_name.capitalize %></li>
   </ol>
 </nav>
+<div class="d-flex bd-highlight mb-2">
+  <div class="bd-highlight">
+    <h1> <%= plural_table_name.capitalize %> </h1>
+  </div>
+  <div class="ms-auto p-2 bd-highlight">
+    <%%= link_to 'Aggiungi', new_<%= singular_table_name %>_path, class: "btn btn-primary" %>
+  </div>
+</div>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
   <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
     <div class="col">
@@ -12,7 +20,7 @@
           <p class="card-text"><%%= <%= singular_table_name %>.inspect %></p>
         </div>
         <div class="card-footer">
-          <small class="text-muted"><%%= <%= singular_table_name %>.created_at %></small>
+          <small class="text-muted"><%%= <%= singular_table_name %>.created_at.to_fs(:default) %></small>
         </div>
       </div>
     </div>

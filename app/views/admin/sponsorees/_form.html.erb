@@ -1,0 +1,57 @@
+<% if sponsoree.errors.any? %>
+  <% sponsoree.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger" role="alert">
+    <%= message %>
+  </div>
+  <% end %>
+<% end %>
+
+<%= form_with(model: sponsoree, local: true, url: admin_sponsorees_url) do |form| -%>
+<div class="card">
+  <h5 class="card-header">Sostenuto</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :name, "Nome", class: "fw-bold" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :surname, "Cognome", class: "fw-bold" %>
+        <%= form.text_field :surname, class: "form-control" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :date_of_birth, "Data di nascita", class: "fw-bold" %>
+        <%= form.date_field :date_of_birth, placeholder: "dd/mm/yyyy", class: "form-control" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :notes, "Note", class: "fw-bold" %>
+        <%= form.text_area :notes, class: "form-control" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :emergency_fund, class: "fw-bold" %>
+        <%= form.number_field :emergency_fund, step: 0.01, class: "form-control" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <%= form.label :images, class: "fw-bold" %>
+        <%= form.file_field :images, placeholder: "Enter images", class: "form-control" %>
+      </div>
+    </li>
+  </ul>
+  <div class="card-footer">
+    <%= link_to "Cancel", sponsoree, class: 'btn btn-outline-secondary float-start' if sponsoree.persisted? %>
+    <%= link_to "Cancel", admin_sponsorees_path, class: 'btn btn-outline-secondary float-start' if !sponsoree.persisted? %>
+    <%= form.submit "Save", class: "btn btn-primary float-end" if sponsoree.persisted? %>
+    <%= form.submit "Create", class: "btn btn-primary float-end" if !sponsoree.persisted? %>
+  </div>
+</div>
+<% end %>

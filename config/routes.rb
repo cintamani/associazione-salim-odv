@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :sponsorees
+  end
+
   devise_for :founders
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -1,0 +1,28 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Sostenuti</li>
+  </ol>
+</nav>
+<div class="d-flex bd-highlight mb-2">
+  <div class="bd-highlight">
+    <h1> Sostenuti </h1>
+  </div>
+  <div class="ms-auto p-2 bd-highlight">
+    <%= link_to "Aggiungi", new_admin_sponsoree_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+  <% @sponsorees.each do |sponsoree| %>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to sponsoree.name, admin_sponsoree_path(sponsoree) %></h5>
+          <p class="card-text"><%= sponsoree.inspect %></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"><%= sponsoree.created_at.to_fs(:default) %></small>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

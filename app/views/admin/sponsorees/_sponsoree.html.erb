@@ -1,0 +1,34 @@
+<div id="<%= dom_id sponsoree %>">
+  <p>
+    <strong>Name:</strong>
+    <%= sponsoree.name %>
+  </p>
+
+  <p>
+    <strong>Surname:</strong>
+    <%= sponsoree.surname %>
+  </p>
+
+  <p>
+    <strong>Date of birth:</strong>
+    <%= sponsoree.date_of_birth %>
+  </p>
+
+  <p>
+    <strong>Notes:</strong>
+    <%= sponsoree.notes %>
+  </p>
+
+  <p>
+    <strong>Emergency fund:</strong>
+    <%= sponsoree.emergency_fund %>
+  </p>
+
+  <p>
+    <strong>Images:</strong>
+    <% sponsoree.images.each do |image| %>
+      <div><%= link_to image.filename, image %></div>
+    <% end %>
+  </p>
+
+</div>

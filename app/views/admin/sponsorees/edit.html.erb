@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "sponsorees", admin_sponsorees_path %></li>
+    <li class="breadcrumb-item"><%= link_to @sponsoree.id, @sponsoree %></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+  </ol>
+</nav>
+<%= render 'form', sponsoree: @sponsoree %>
